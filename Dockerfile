@@ -18,9 +18,9 @@ RUN useradd -ms /bin/bash app \
     && mkdir /workspace \
     && chown app:app /workspace
 
-ENV PATH="~/.cabal/bin:${PATH}"
-
 USER app
+
+ENV PATH="/home/app/.cabal/bin:${PATH}"
 
 RUN cabal update \
     && cabal install happy \
